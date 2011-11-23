@@ -8,7 +8,7 @@ endif
 
 runtime! ftplugin/html.vim ftplugin/html_*.vim ftplugin/html/*.vim
 
-setlocal comments=fb:*,fb:-,fb:+,n:> commentstring=>\ %s
+setlocal comments=nb:*,nb:-,nb:+,n:> commentstring=>\ %s
 setlocal formatoptions+=tcqln
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
 
