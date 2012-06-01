@@ -59,7 +59,7 @@ function!PreviewMarkdown()
         \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">',
         \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssbase/base-min.css">',
         \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css">',
-        \ '<style>body{padding:30px; background: #f5f5f5; height: 100%;}div#container{padding:0 30px;margin:0px; font-size: 18px; line-height: 24px; width: 750px; margin:0 auto;} blockquote {font-style:italic;} pre {background: #e5e5e5; padding: 10px;}</style>',
+        \ '<style>body{padding:30px; background: #f5f5f5;}div#container{padding:0 30px;margin:0px; font-size: 18px; line-height: 24px; width: 750px; margin:0 auto;} blockquote {font-style:italic;} pre {background: #e5e5e5; padding: 10px;}</style>',
         \ '</head>', '<body>', '<div id="container">']
     call writefile(file_header, output_name)
 
