@@ -12,6 +12,8 @@ setlocal comments=nb:*,nb:-,nb:+,n:> commentstring=>\ %s
 setlocal formatoptions+=tcqln
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
 
+map <buffer> + <esc>I#<esc>
+
 let b:undo_ftplugin .= "|setl cms< com< fo<"
 
 " Markdown Preview Command
