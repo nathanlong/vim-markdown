@@ -8,6 +8,7 @@ endif
 
 runtime! ftplugin/html.vim ftplugin/html_*.vim ftplugin/html/*.vim
 
+<<<<<<< HEAD
 setlocal comments=nb:*,nb:-,nb:+,n:> commentstring=>\ %s
 setlocal formatoptions+=tcqln
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
@@ -15,6 +16,17 @@ setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
 map <buffer> + <esc>I#<esc>
 
 let b:undo_ftplugin .= "|setl cms< com< fo<"
+=======
+setlocal comments=fb:*,fb:-,fb:+,n:> commentstring=>\ %s
+setlocal formatoptions+=tcqln formatoptions-=r formatoptions-=o
+setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
+
+if exists('b:undo_ftplugin')
+  let b:undo_ftplugin .= "|setl cms< com< fo< flp<"
+else
+  let b:undo_ftplugin = "setl cms< com< fo< flp<"
+endif
+>>>>>>> ec0abb3064ce7af81d5d1141a5fba043ac9e8a1c
 
 " Markdown Preview Command
 " Ported from Nate Silva's solution
