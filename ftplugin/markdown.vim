@@ -29,7 +29,7 @@ function!PreviewMarkdown()
     " **************************************************************
     " Configurable settings
 
-    let MARKDOWN_COMMAND = 'pandoc'
+    let MARKDOWN_COMMAND = 'markdown'
 
     if has('win32')
         " note important extra pair of double-quotes
@@ -56,14 +56,11 @@ function!PreviewMarkdown()
     endif
 
     " Write the HTML header. Do a CSS reset, followed by setting up
-    " some basic styles from YUI, so the output looks nice.
     let file_header = ['<html>', '<head>',
         \ '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">',
         \ '<title>Markdown Preview</title>',
-        \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">',
-        \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssbase/base-min.css">',
-        \ '<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css">',
-        \ '<style>body{padding:30px; background: #f5f5f5;}div#container{padding:0 30px;margin:0px; font-size: 18px; line-height: 24px; width: 750px; margin:0 auto;} blockquote {font-style:italic;} pre {background: #e5e5e5; padding: 10px;}</style>',
+        \ '<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css">',
+        \ '<style>body{background: #f5f5f5; color: #333;}div#container{width: 45em; margin:3em auto;} blockquote {font-style:italic;} pre {background: #e5e5e5;}</style>',
         \ '</head>', '<body>', '<div id="container">']
     call writefile(file_header, output_name)
 
@@ -98,6 +95,8 @@ function!PreviewMarkdown()
 endfunction
 
 " Map this feature to the key sequence ',p' (comma lowercase-p)
-map <leader>p :call PreviewMarkdown()<CR>
+if !hasmapto(':PreviewMarkdown()<CR>')
+  map <leader>p :call PreviewMarkdown()<CR>
+endif
 
 " vim:set sw=2:
