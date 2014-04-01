@@ -1,6 +1,6 @@
 " Vim filetype plugin
-" Language:		Markdown
-" Maintainer:		Tim Pope <vimNOSPAM@tpope.org>
+" Language:     Markdown
+" Maintainer:       Tim Pope <vimNOSPAM@tpope.org>
 
 if exists("b:did_ftplugin")
   finish
@@ -20,6 +20,7 @@ endif
 
 " Markdown Preview Command
 " Ported from Nate Silva's solution
+" https://gist.github.com/natesilva/960015
 "
 " Requires Markdown or another markdown compiler (discount, pandoc, etc) to be
 " installed. To use your engine of choice change MARKDOWN_COMMAND to whatever
@@ -60,8 +61,10 @@ function!PreviewMarkdown()
         \ '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">',
         \ '<title>Markdown Preview</title>',
         \ '<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css">',
-        \ '<style>body{background: #f5f5f5; color: #333;}div#container{width: 45em; margin:3em auto;} blockquote {font-style:italic;} pre {background: #e5e5e5;}</style>',
-        \ '</head>', '<body>', '<div id="container">']
+        \ '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>',
+        \ '<style>body{background: #ffffff; color: #333; font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }.container{width: 45em; margin:3em auto;}blockquote{font-style:italic;}pre{background: #e5e5e5;}.print{width:100%; margin: 0;font-size: 12px; color: #000; }.toggle{position:absolute; top: 1em; right: 1em; font-size:12px; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none;}@media print {.toggle {display: none;}}</style>',
+        \ '<script>$(document).ready(function(){$(".toggle").click(function(){$(".container").toggleClass("print");});});</script>',
+        \ '</head>', '<body>', '<div class="container"><button type="submit" class="toggle">Format for Print</button>']
     call writefile(file_header, output_name)
 
     let md_command = '!' . MARKDOWN_COMMAND . ' "' . expand('%:p') . '" >> "' .
